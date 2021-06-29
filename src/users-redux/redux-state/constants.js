@@ -1,0 +1,6 @@
+export const USERS_ACTION = {
+  fetchAction: 'FETCH_USERS_ACTION_INITIATED',
+  successAction: 'FETCH_USERS_ACTION_SUCCEEDED',
+  failureAction: 'FETCH_USERS_ACTION_SUCCEEDED',
+  resetAction: 'RESET_USERS_REDUCER_ACTION',
+};

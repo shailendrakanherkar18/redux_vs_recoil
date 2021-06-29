@@ -3,13 +3,14 @@ import { useRecoilValueLoadable } from "recoil";
 import BootstrapTable from "react-bootstrap-table-next";
 import { Container, Spinner } from "reactstrap";
 
-import userTableColumns from "./userTableColumns";
+import userTableColumns from "../users-shared/userTableColumns";
 
-import { fetchUserDetails } from "./selectors";
+import { fetchUserDetails } from "./recoil-state/selectors";
 
-import "./style.css";
+import "../users-shared/style.css";
 
 const UsersContainer = () => {
+  // subscribed to usersReducer and will take care of fetching users list from server
   const userDetails = useRecoilValueLoadable(fetchUserDetails);
 
   const { state } = userDetails;
@@ -21,12 +22,13 @@ const UsersContainer = () => {
           <Spinner style={{ width: "3rem", height: "3rem" }} />
         </div>
       )}
+
       {state === "hasValue" && (
         <BootstrapTable
           bootstrap4
           keyField="id"
           data={userDetails.contents.data}
-          columns={userTableColumns}
+          columns={userTableColumns("users-recoil")}
         />
       )}
     </Container>

@@ -1,6 +1,3 @@
-import { useRecoilValue } from "recoil";
-import { getUserByID } from "./selectors";
-
 import {
   Container,
   Row,
@@ -13,15 +10,8 @@ import {
   CardSubtitle,
 } from "reactstrap";
 
-const UserDetails = (props) => {
-  const {
-    match: {
-      params: { userId },
-    },
-  } = props;
-
-  const selectedUser = useRecoilValue(getUserByID(userId));
-  const { avatar, email, first_name, last_name } = selectedUser;
+const UserDetailsComponent = (props) => {
+  const { avatar, first_name, last_name, email } = props;
 
   return (
     <Container className="mt-4">
@@ -43,4 +33,4 @@ const UserDetails = (props) => {
   );
 };
 
-export default UserDetails;
+export default UserDetailsComponent;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const userTableColumns = [
+const userTableColumns =  (detailsPageRoute) => [
   {
     dataField: "id",
     text: "User ID",
@@ -17,7 +17,7 @@ const userTableColumns = [
             alt="profile pic"
           />
           <span className="ml-3">
-            <Link to={`/users/${row.id}`}>{`${cell} ${row.last_name}`}</Link>
+            <Link to={`/${detailsPageRoute}/${row.id}`}>{`${cell} ${row.last_name}`}</Link>
           </span>
         </div>
       );
